@@ -1,0 +1,51 @@
+﻿<Window x:Class="DigitalWorkflowApp.ViewEditPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Digital Workflow" Height="500" Width="600"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Select Report to View / Edit"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,10"/>
+
+        <!-- Search and List -->
+        <StackPanel Grid.Row="1" Margin="40,0">
+            <DockPanel>
+                <TextBox Width="400"
+                         Height="35"
+                         VerticalAlignment="Center"
+                         Margin="0,0,10,10"
+                         Padding="5"
+                         Text="Search"/>
+                <Button Width="35" Height="35" VerticalAlignment="Center" Margin="0,0,0,10">
+                    <TextBlock FontSize="20" FontWeight="Bold" Text="🔍"/>
+                </Button>
+            </DockPanel>
+
+            <ListBox Name="ReportListBox"
+                     Height="280"
+                     BorderBrush="LightGray"
+                     BorderThickness="1"
+                     FontSize="16"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible">
+            </ListBox>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,40,20">
+            <Button Content="Back" Width="80" Margin="0,0,10,0"/>
+            <Button Content="View" Width="80" Margin="0,0,10,0"/>
+            <Button Content="Edit" Width="80"/>
+        </StackPanel>
+    </Grid>
+</Window>
+

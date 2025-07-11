@@ -1,0 +1,32 @@
+﻿<Window x:Class="DigitalWorkflowApp.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HomePage" Height="450" Width="800">
+    <Grid>
+        <!-- Top Bar -->
+        <DockPanel LastChildFill="False" Margin="10">
+            <Label Content="Digital Workflow" FontSize="16" FontWeight="Bold" />
+            <Button Content="Logout" Width="60" DockPanel.Dock="Right" Click="Logout_Click"/>
+        </DockPanel>
+
+        <!-- Main Content -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" >
+            <TextBlock Text="Project Name" FontWeight="Bold" Margin="0,10,0,5"/>
+            <ComboBox x:Name="ProjectNameComboBox" Width="200">
+                <ComboBoxItem Content="PCS"/>
+                <ComboBoxItem Content="PCS 1A"/>
+                <ComboBoxItem Content="PCS 1B"/>
+            </ComboBox>
+
+            <TextBlock Text="Report Type" FontWeight="Bold" Margin="0,20,0,5"/>
+            <ComboBox x:Name="ReportTypeComboBox" Width="200">
+                <ComboBoxItem Content="Site Survey Report"/>
+            </ComboBox>
+
+            <Button Content="Create New Report" Width="200" Margin="0,20,0,5" Click="CreateReport_Click"/>
+            <Button Content="Edit / View Report" Width="200" Click="EditViewReport_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
+

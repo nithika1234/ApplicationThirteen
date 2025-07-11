@@ -1,0 +1,80 @@
+﻿<Window x:Class="DigitalWorkflowApp.SiteSurveyPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DigitalWorkflowApp"
+        Title="Site Survey Report" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
+
+    <Grid Background="White" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <DockPanel Grid.Row="0" Margin="0,0,0,20">
+            <Label Content="Digital Workflow" FontWeight="Bold" FontSize="14" />
+            <Button Content="X" DockPanel.Dock="Right" Width="30" />
+        </DockPanel>
+
+        <!-- Title & Item Format -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Site Survey Report" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,10"/>
+            <TextBlock Text="Item ID:  PCS_(Postal Code)(Alphabet Representative)_(Item)" 
+                       FontStyle="Italic"
+                       Margin="0,5" />
+        </StackPanel>
+
+        <!-- Main Upload Area -->
+        <StackPanel Grid.Row="2" Margin="20,10,20,10">
+            <ComboBox Width="200" HorizontalAlignment="Right" Margin="0,0,0,10">
+                <ComboBoxItem Content="Camera"/>
+                <ComboBoxItem Content="Equipment Housing"/>
+            </ComboBox>
+
+            <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="20">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Camera Location" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,10" />
+                    <TextBlock FontSize="36" Text="📷" HorizontalAlignment="Center" Margin="0,10"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                        <Button Content="Take Photo" Margin="10" Padding="10,5" Click="TakePhoto_Click"/>
+                        <Button Content="Upload Photo" Margin="10" Padding="10,5" Click="UploadPhoto_Click"/>
+                    </StackPanel>
+
+                    <Image Name="ImagePreview" Height="200" Stretch="Uniform" Visibility="Collapsed"/>
+                    <TextBox Name="TextPreview" FontSize="14" Visibility="Collapsed" IsReadOnly="True" Margin="10"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- Remarks Section -->
+        <StackPanel Grid.Row="3" Margin="0,10,0,0">
+            <TextBox Name="RemarksTextBox"
+                     Text=""
+                     Height="40"
+                     Padding="5"
+                     FontStyle="Italic"
+                     GotFocus="RemarksTextBox_GotFocus"
+                     LostFocus="RemarksTextBox_LostFocus"/>
+
+            <TextBlock Text="Insert Remarks Here"
+                       Margin="5,5,0,0"
+                       Foreground="Gray"
+                       IsHitTestVisible="False"
+                       VerticalAlignment="Top"
+                       Visibility="{Binding Text.Length, ElementName=RemarksTextBox, Converter={StaticResource BoolToVisibilityConverter}}" />
+        </StackPanel>
+    </Grid>
+</Window>
+
