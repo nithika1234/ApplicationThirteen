@@ -1,0 +1,56 @@
+﻿<Window x:Class="ApplicationThirteen.ViewEditItemPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="View/Edit Item" Height="650" Width="950"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Grid Background="White" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <DockPanel Grid.Row="0">
+            <Label Content="Digital Workflow" FontSize="14" FontWeight="Bold" />
+            <Button Content="X" Width="30" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+        </DockPanel>
+
+        <!-- Camera Block Info -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,10">
+            <TextBlock Text="PCS_560881AMk" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="Camera in Blk 881 Ang Mo Kio St 11, 560881 (BTO)" 
+                       FontSize="14" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <!-- Content Area -->
+        <Border Grid.Row="2" BorderThickness="1" BorderBrush="Gray" CornerRadius="10" Margin="0,10" Padding="10">
+            <StackPanel>
+                <!-- Logo and ID -->
+                <DockPanel Margin="0,0,0,10">
+                   
+                    <!-- Padding between logo and location -->
+                    <TextBlock Text="Camera in Blk 881 Ang Mo Kio St 11, 560881 (BTO)" 
+                               FontSize="12" VerticalAlignment="Center" 
+                               Margin="20,0,0,0"/>
+                </DockPanel>
+
+                <!-- Camera ID -->
+                <TextBlock Text="PCS_560881AMK_F03" FontSize="16" FontWeight="Bold" Margin="0,10,0,5"/>
+
+                <!-- Image Preview -->
+                <Image Name="ItemImage" Height="300" Stretch="UniformToFill" />
+            </StackPanel>
+        </Border>
+
+        <!-- Bottom Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10">
+            <Button Content="Back" Width="80" Height="30" Margin="5" Click="Back_Click"/>
+            <Button Content="View" Width="80" Height="30" Margin="5" Click="View_Click"/>
+            <Button Content="Edit" Width="80" Height="30" Margin="5" Click="Edit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
+

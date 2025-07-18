@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ApplicationThirteen;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DigitalWorkflowApp
@@ -16,7 +17,7 @@ namespace DigitalWorkflowApp
             this.Close();
         }
 
-        private void CreateReport_Click(object sender, RoutedEventArgs e)
+        private void CreateNewReport_Click(object sender, RoutedEventArgs e)
         {
             string project = (ProjectNameComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             string reportType = (ReportTypeComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
@@ -27,8 +28,12 @@ namespace DigitalWorkflowApp
                 return;
             }
 
-            MessageBox.Show($"Creating new report for {project} - {reportType}");
+            // Open the CreateNewReport window
+            var createReportWindow = new CreateNewReport();
+            createReportWindow.Show();
+            this.Close();
         }
+
 
         private void EditViewReport_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +46,15 @@ namespace DigitalWorkflowApp
                 return;
             }
 
+            // Optional: show confirmation
             MessageBox.Show($"Opening {reportType} for {project}");
+
+            // ✅ Navigate to the ViewEditPage
+            ViewEditPage viewEditPage = new ViewEditPage();
+            viewEditPage.Show();
+
+            // Optional: Close current Home page
+            this.Close();
         }
     }
 }

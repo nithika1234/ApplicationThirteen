@@ -23,7 +23,7 @@
                 <ComboBoxItem Content="Site Survey Report"/>
             </ComboBox>
 
-            <Button Content="Create New Report" Width="200" Margin="0,20,0,5" Click="CreateReport_Click"/>
+            <Button Content="Create New Report" Width="200" Margin="0,20,0,5" Click="CreateNewReport_Click"/>
             <Button Content="Edit / View Report" Width="200" Click="EditViewReport_Click"/>
         </StackPanel>
     </Grid>
